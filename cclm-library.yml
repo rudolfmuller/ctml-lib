@@ -1,0 +1,12 @@
+name: ctml
+description: html for cpp
+version: 1.0.0
+
+authors: [Rudolf Muller]
+license: MIT
+
+build-mode: shared
+build-compiler: g++ 
+build-cflags: [-O2]
+build-include-directory: include/
+build-source-files: [src/ctml.cpp]
