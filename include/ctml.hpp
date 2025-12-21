@@ -3,12 +3,14 @@
 #include <string>
 #include <fstream>
 #include <cstdlib>
+#include <filesystem>
+
+namespace fs = std::filesystem;
 
 typedef const std::string element_t;
 typedef const std::string content_t;
 
 element_t DOCTYPE(element_t type);
-element_t HTML(element_t code);
 element_t title(content_t text);
 element_t style(content_t css);
 element_t script(content_t js);
@@ -38,27 +40,35 @@ element_t hr();
 element_t a(content_t href, content_t text);
 element_t img(content_t src, content_t alt);
 
-
-template<typename... ult>
-element_t ul(ult... h) {
-    return "<ul>" + (std::string("") + ... + h) + "</ul>";
+template<typename... t>
+element_t div(content_t cls, t... h) {
+    return "<div class="+cls+">" + (std::string("") + ... + h) + "</div>";
 }
 
-template<typename... headt>
-element_t head(headt... h) {
+template<typename... t>
+element_t ul(t... h) {
+    return "<ul>" + (std::string("") + ... + h) + "</ul>";
+}
+template<typename... t>
+element_t html(t... h) {
+    return "<html>" + (std::string("") + ... + h) + "</html>";
+}
+
+template<typename... t>
+element_t head(t... h) {
     return "<head>" + (std::string("") + ... + h) + "</head>";
 }
 
-template<typename... bodyt>
-element_t body(bodyt... h) {
+template<typename... t>
+element_t body(t... h) {
     return "<body>" + (std::string("") + ... + h) + "</body>";
 }
 
-template<typename... elementst>
-void html(std::string name, elementst... h) {
-    name = "./" + name + ".html";
-    std::ofstream f(name);
+template<typename... t>
+void index(t... h) {
+    fs::path directory = "./index.html";
+    std::ofstream f(directory);
     ((f << h), ...);
     f.close();
-    system(std::string("xdg-open " + name).c_str());
+    system(std::string("xdg-open " + directory.string()).c_str());
 }

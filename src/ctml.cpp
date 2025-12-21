@@ -1,7 +1,6 @@
 #include "../include/ctml.hpp"
 
-element_t DOCTYPE(element_t type) { return "<!DOCTYPE "+type+">"; }
-element_t HTML(element_t code) {return code;}
+element_t DOCTYPE(element_t type) { return "<!DOCTYPE "+type+">\n"; }
 element_t title(content_t text){return "<title>"+text+"</title>";}
 
 element_t strong(element_t element){ return "<strong>"+element+"</strong>"; }
