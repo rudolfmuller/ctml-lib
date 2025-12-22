@@ -1,6 +1,13 @@
+# @library
 name: ctml
-sources-files: ["main.cpp","src/ctml.cpp"]
-output-directory: dist/
+description: html for cpp
+version: 2.2.0
 
-compiler: g++
-cflags: [-O2]
+authors: [Rudolf Muller]
+license: MIT
+
+build-mode: shared
+build-compiler: g++ 
+build-cflags: [-O2]
+build-include-directory: include/
+build-source-files: [src/ctml.cpp]
