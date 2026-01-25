@@ -1,0 +1,24 @@
+project(
+	project.name=ctml
+	project.version=2.2.0
+	project.description="html for cpp"
+)
+
+library(
+	library.name=ctml
+	library.version=2.2.0
+	library.description="html for cpp"
+
+	library.authors=("Rudolf Muller")
+	library.license="MIT"
+)
+
+build(
+	build.mode=shared
+	build.compiler=g++
+	build.cflags=("-O2")
+	build.include-directory="include"
+	build.source-files=("src/ctml.cpp", "main.cpp")
+	build.output-directory="dist/"
+)
+

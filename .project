@@ -1,7 +1,0 @@
-# @project
-name: ctml
-sources-files: ["main.cpp","src/ctml.cpp"]
-output-directory: dist/
-
-compiler: g++
-cflags: [-O2]
